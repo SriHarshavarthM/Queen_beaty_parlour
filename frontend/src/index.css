@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Beauty Parlor Design System */
+    
+    /* Core Colors - Elegant Feminine Palette */
+    --background: 30 50% 98%;
+    --foreground: 0 0% 24%;
+
+    --card: 30 40% 99%;
+    --card-foreground: 0 0% 24%;
+
+    --popover: 30 40% 99%;
+    --popover-foreground: 0 0% 24%;
+
+    /* Primary - Blush Pink */
+    --primary: 10 45% 85%;
+    --primary-foreground: 0 0% 24%;
+    --primary-hover: 10 50% 80%;
+
+    /* Secondary - Warm Cream */
+    --secondary: 35 40% 96%;
+    --secondary-foreground: 0 0% 24%;
+
+    /* Muted - Soft Neutrals */
+    --muted: 30 20% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Accent - Gold */
+    --accent: 40 50% 56%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 40 40% 92%;
+
+    /* Rose - Deeper Pink for CTAs */
+    --rose: 350 60% 65%;
+    --rose-foreground: 0 0% 100%;
+    --rose-hover: 350 65% 58%;
+
+    /* Cream - Warm Background */
+    --cream: 35 50% 97%;
+    --cream-dark: 35 35% 92%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 30 25% 90%;
+    --input: 30 25% 90%;
+    --ring: 10 45% 85%;
+
+    --radius: 1rem;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 20px 50px -15px hsl(0 0% 0% / 0.15);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 30 50% 98%;
+    --sidebar-foreground: 0 0% 24%;
+    --sidebar-primary: 10 45% 85%;
+    --sidebar-primary-foreground: 0 0% 24%;
+    --sidebar-accent: 35 40% 96%;
+    --sidebar-accent-foreground: 0 0% 24%;
+    --sidebar-border: 30 25% 90%;
+    --sidebar-ring: 10 45% 85%;
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 30 20% 95%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 10 40% 75%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 30 20% 95%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 30 15% 65%;
+
+    --accent: 40 50% 56%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 40 20% 25%;
+
+    --rose: 350 55% 60%;
+    --rose-foreground: 0 0% 100%;
+    --rose-hover: 350 60% 55%;
+
+    --cream: 0 0% 14%;
+    --cream-dark: 0 0% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 10 40% 75%;
+
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 30 20% 95%;
+    --sidebar-primary: 10 40% 75%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 30 20% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 10 40% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  /* Premium Button Styles */
+  .btn-primary {
+    @apply bg-rose text-rose-foreground px-8 py-3 rounded-full font-medium 
+           transition-all duration-300 hover:bg-rose-hover hover:shadow-lg 
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border-2 border-foreground/20 text-foreground px-8 py-3 rounded-full 
+           font-medium transition-all duration-300 hover:border-rose hover:text-rose 
+           hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-gold {
+    @apply bg-accent text-accent-foreground px-8 py-3 rounded-full font-semibold 
+           transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 
+           active:translate-y-0;
+  }
+
+  /* Card Styles */
+  .card-elegant {
+    @apply bg-card rounded-2xl shadow-soft transition-all duration-500 
+           hover:shadow-card hover:-translate-y-1;
+  }
+
+  .card-service {
+    @apply bg-card rounded-3xl p-8 shadow-soft transition-all duration-500 
+           hover:shadow-elevated hover:-translate-y-2 border border-border/50;
+  }
+
+  /* Section Styles */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Typography Utilities */
+  .heading-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-medium leading-tight;
+  }
+
+  .heading-section {
+    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-medium;
+  }
+
+  .heading-card {
+    @apply text-xl md:text-2xl font-heading font-medium;
+  }
+
+  .text-elegant {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  /* Decorative Elements */
+  .divider-elegant {
+    @apply w-20 h-0.5 bg-accent mx-auto my-6;
+  }
+
+  .divider-left {
+    @apply w-16 h-0.5 bg-accent my-4;
+  }
+
+  /* Overlay Effects */
+  .overlay-gradient {
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80;
+  }
+
+  .overlay-dark {
+    @apply absolute inset-0 bg-foreground/40;
+  }
+
+  /* Image Effects */
+  .image-zoom {
+    @apply overflow-hidden;
+  }
+
+  .image-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .image-zoom:hover img {
+    @apply scale-110;
+  }
+
+  /* Link Underline Animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-accent 
+           origin-left scale-x-0 transition-transform duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Form Styles */
+  .input-elegant {
+    @apply w-full px-5 py-4 bg-card border border-border rounded-xl 
+           focus:outline-none focus:border-rose focus:ring-2 focus:ring-rose/20 
+           transition-all duration-300 text-foreground placeholder:text-muted-foreground;
+  }
+
+  .select-elegant {
+    @apply w-full px-5 py-4 bg-card border border-border rounded-xl 
+           focus:outline-none focus:border-rose focus:ring-2 focus:ring-rose/20 
+           transition-all duration-300 text-foreground appearance-none cursor-pointer;
+  }
+}
+
+@layer utilities {
+  /* Animation Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Text Gradients */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-accent via-yellow-500 to-accent bg-clip-text text-transparent;
+  }
+}
